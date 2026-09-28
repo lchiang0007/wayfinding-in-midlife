@@ -80,7 +80,7 @@ function Eyebrow({ children }: { children: React.ReactNode }) {
 
 function Index() {
   const [active, setActive] = useState(0);
-  const d = DESTINATIONS[active];
+  const d = DESTINATIONS[active]!;
 
   return (
     <div className="min-h-screen">
@@ -378,7 +378,7 @@ function ApplySection() {
     const fd = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
     const parsed = schema.safeParse(fd);
     if (!parsed.success) {
-      setError(parsed.error.issues[0].message);
+      setError(parsed.error.issues[0]?.message ?? "Please check the form");
       return;
     }
     setError(null);
