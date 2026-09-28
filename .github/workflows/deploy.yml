@@ -25,10 +25,10 @@ jobs:
 
 
       - name: Set up Node
-            uses: actions/setup-node@v4
-            with:
-              node-version: 20
-              # cache: 'npm'  <-- Remove or comment out this line
+        uses: actions/setup-node@v4
+        with:
+            node-version: 20
+            # cache: 'npm'  <-- Remove or comment out this line
 
       - name: Install dependencies
         run: npm install  # <-- Change from 'npm ci' to 'npm install'
