@@ -31,15 +31,15 @@ jobs:
             # cache: 'npm'  <-- Remove or comment out this line
 
       - name: Install dependencies
-        run: npm install  # <-- Change from 'npm ci' to 'npm install'
+            run: npm install
 
       - name: Build site
-        run: npm run build
+            run: npm run build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
+            uses: actions/upload-pages-artifact@v3
+            with:
+              path: './dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
