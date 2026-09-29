@@ -34,6 +34,9 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Create 404 fallback for GitHub Pages
+        run: cp .output/public/index.html .output/public/404.html || true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
