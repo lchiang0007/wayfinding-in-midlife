@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project decisions
+
+- Preserve the editorial journey structure while using the Caribbean Sunrise palette and bright, authentic group bikepacking photography to reflect the founder's Cuban heritage and optimistic positioning.
