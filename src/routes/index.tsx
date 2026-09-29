@@ -2,12 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
-import { Button } from "@/components/ui/button";
-import hero from "@/assets/hero-sunrise.jpg";
-import patagonia from "@/assets/patagonia-sun.jpg";
-import spain from "@/assets/spain-sun.jpg";
-import iceland from "@/assets/iceland-sun.jpg";
-import japan from "@/assets/japan-sun.jpg";
+import hero from "@/assets/hero.jpg";
+import patagonia from "@/assets/patagonia.jpg";
+import spain from "@/assets/spain.jpg";
+import iceland from "@/assets/iceland.jpg";
+import japan from "@/assets/japan.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -86,9 +85,9 @@ function Index() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/90 text-foreground shadow-sm backdrop-blur-xl">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-ink-foreground/10 bg-ink/85 text-ink-foreground backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-          <a href="#top" className="text-xs font-bold tracking-[0.25em] sm:text-sm sm:tracking-[0.3em]">
+          <a href="#top" className="text-sm font-semibold tracking-[0.3em]">
             WAYFINDING <span className="text-primary">//</span> CYCLING
           </a>
           <nav className="hidden gap-8 text-sm lg:flex">
@@ -98,29 +97,32 @@ function Index() {
               </a>
             ))}
           </nav>
-          <Button asChild size="sm" className="rounded-full px-4 font-bold uppercase tracking-wider shadow-md">
-            <a href="#apply"><span className="sm:hidden">Apply</span><span className="hidden sm:inline">Apply for Pilot Cohort</span></a>
-          </Button>
+          <a
+            href="#apply"
+            className="rounded-sm bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary/90"
+          >
+            Apply for Pilot Cohort
+          </a>
         </div>
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative flex min-h-[92vh] items-end overflow-hidden bg-secondary text-foreground">
+      <section id="top" className="relative flex min-h-screen items-end bg-ink text-ink-foreground">
         <img
           src={hero}
           alt="Small group of gravel cyclists riding toward a Patagonian glacier at golden hour"
           width={1920}
           height={1088}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover opacity-70"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-ink/10" />
         <div className="relative mx-auto w-full max-w-7xl px-6 pb-12 pt-32">
-          <span className="inline-block rounded-full border border-foreground/20 bg-background/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] shadow-sm backdrop-blur">
+          <span className="inline-block border border-ink-foreground/30 px-3 py-1 text-xs uppercase tracking-[0.2em]">
             2026–2027 Beta Pilot Cohort — By Application Only
           </span>
-          <h1 className="mt-6 max-w-4xl text-5xl font-medium leading-[1.02] drop-shadow-[0_2px_12px_var(--background)] md:text-7xl">
+          <h1 className="mt-6 max-w-4xl text-5xl font-medium leading-[1.02] md:text-7xl">
             Wayfinding Through Uncertainty
-            <span className="mt-3 block text-3xl italic text-primary md:text-4xl">
+            <span className="mt-3 block text-3xl italic text-sand md:text-4xl">
               Adventure cycling for turning points in life & career
             </span>
           </h1>
@@ -129,10 +131,20 @@ function Index() {
             structured reflection for executives and leaders in transition.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button asChild size="lg" className="rounded-full px-6 font-bold shadow-lg"><a href="#apply">Request Beta Invitation</a></Button>
-            <Button asChild size="lg" variant="outline" className="rounded-full border-foreground/30 bg-background/80 px-6 font-bold backdrop-blur hover:bg-secondary"><a href="#destinations">Explore Destinations</a></Button>
+            <a
+              href="#apply"
+              className="rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+            >
+              Request Beta Invitation
+            </a>
+            <a
+              href="#destinations"
+              className="rounded-sm border border-ink-foreground/40 px-6 py-3 text-sm font-semibold hover:bg-ink-foreground/10"
+            >
+              Explore Destinations
+            </a>
           </div>
-          <dl className="mt-14 grid grid-cols-2 gap-px border-t border-foreground/20 pt-6 md:grid-cols-4">
+          <dl className="mt-14 grid grid-cols-2 gap-px border-t border-ink-foreground/20 pt-6 md:grid-cols-4">
             {[
               ["Group Size", "5–6 Participants", "Curated cohort"],
               ["Pace", "Party Pace", "Rhythm over speed"],
@@ -162,7 +174,7 @@ function Index() {
             ["Not just a holiday", "Deliberately built around identity transformation and peer reflection — exploration before commitment."],
           ].map(([t, b], i) => (
             <div key={t} className="bg-background p-8">
-              <span className="font-serif text-5xl text-turquoise">0{i + 1}</span>
+              <span className="font-serif text-5xl text-sand">0{i + 1}</span>
               <h3 className="mt-4 text-2xl">{t}</h3>
               <p className="mt-3 text-muted-foreground">{b}</p>
             </div>
@@ -196,7 +208,7 @@ function Index() {
       <section id="philosophy" className="bg-accent text-accent-foreground">
         <div className="mx-auto grid max-w-7xl gap-16 px-6 py-28 lg:grid-cols-2">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-forest">
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-sand">
               02 — Who we are & the wayfinding philosophy
             </p>
             <h2 className="mt-4 text-4xl leading-tight md:text-5xl">
@@ -207,14 +219,14 @@ function Index() {
               next chapter. The old identity is loosening; the new one hasn't crystallized.
             </p>
             <div className="mt-10 space-y-8">
-              <div className="border-l-4 border-sun pl-6">
+              <div className="border-l-2 border-sand pl-6">
                 <h3 className="text-2xl">Working Identity — Herminia Ibarra</h3>
                 <p className="mt-2 opacity-80">
                   We don't discover our next identity purely through introspection. We act our way
                   into new possibilities — wayfinding rather than pathfinding.
                 </p>
               </div>
-              <div className="border-l-4 border-primary pl-6">
+              <div className="border-l-2 border-sand pl-6">
                 <h3 className="text-2xl">The Looking Phase — Chip Conley</h3>
                 <p className="mt-2 opacity-80">
                   The space between leaving an old identity and forming a new one is a productive
@@ -229,7 +241,7 @@ function Index() {
               provides movement; adventure provides context; peers provide conversation."
             </blockquote>
             <div className="border-t border-accent-foreground/20 pt-6">
-               <p className="text-xs font-bold uppercase tracking-[0.25em] text-forest">Founder note</p>
+              <p className="text-xs uppercase tracking-[0.25em] text-sand">Founder note</p>
               <p className="mt-3 opacity-85">
                 Built by a former global executive who transitioned through corporate leadership,
                 entrepreneurship and global bikepacking — and found that the answer was to start
@@ -248,17 +260,15 @@ function Index() {
         </h2>
         <div className="mt-12 flex flex-wrap gap-2 border-b">
           {DESTINATIONS.map((x, i) => (
-            <Button
-              type="button"
-              variant="ghost"
+            <button
               key={x.name}
               onClick={() => setActive(i)}
-              className={`-mb-px h-auto rounded-none border-b-4 px-4 py-3 text-sm font-bold uppercase tracking-wider shadow-none ${
-                i === active ? "border-primary bg-secondary text-foreground" : "border-transparent text-muted-foreground hover:bg-accent/50 hover:text-foreground"
+              className={`-mb-px border-b-2 px-4 py-3 text-sm font-semibold uppercase tracking-wider transition-colors ${
+                i === active ? "border-primary text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"
               }`}
             >
               {x.name}
-            </Button>
+            </button>
           ))}
         </div>
         <div className="mt-10 grid gap-10 md:grid-cols-5">
@@ -266,8 +276,8 @@ function Index() {
             key={d.name}
             src={d.img}
             alt={`${d.route}, ${d.region}`}
-            width={1200}
-            height={1504}
+            width={1024}
+            height={1280}
             loading="lazy"
             className="aspect-[4/5] w-full rounded-sm object-cover animate-in fade-in duration-500 md:col-span-3"
           />
@@ -289,9 +299,9 @@ function Index() {
       </section>
 
       {/* Experience */}
-      <section id="experience" className="bg-sun text-sun-foreground">
+      <section id="experience" className="bg-ink text-ink-foreground">
         <div className="mx-auto max-w-7xl px-6 py-28">
-          <p className="text-xs font-bold uppercase tracking-[0.25em] text-coral">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">
             04 — The experience & participant requirements
           </p>
           <h2 className="mt-4 max-w-3xl text-4xl leading-tight md:text-5xl">
@@ -304,7 +314,7 @@ function Index() {
                 ["Elevation", "500–1,200", "m climbing / day"],
                 ["Duration", "~8", "hours incl. breaks, food & reflection"],
               ].map(([k, v, u]) => (
-                <div key={k} className="border-t border-sun-foreground/25 pt-4">
+                <div key={k} className="border-t border-ink-foreground/25 pt-4">
                   <dt className="text-[11px] uppercase tracking-[0.2em] opacity-60">{k}</dt>
                   <dd className="mt-2 font-serif text-4xl md:text-5xl">{v}</dd>
                   <dd className="mt-1 text-sm opacity-60">{u}</dd>
@@ -318,8 +328,8 @@ function Index() {
                 ["Mindset", "Openness to peer reflection, career transition exploration and group camaraderie."],
                 ["Logistics", "Comprehensive personal travel / medical insurance required."],
               ].map(([k, v]) => (
-                <li key={k} className="flex gap-6 border-b border-sun-foreground/15 pb-6">
-                  <span className="w-24 shrink-0 text-xs font-bold uppercase tracking-[0.2em] text-coral">{k}</span>
+                <li key={k} className="flex gap-6 border-b border-ink-foreground/15 pb-6">
+                  <span className="w-24 shrink-0 text-xs font-semibold uppercase tracking-[0.2em] text-sand">{k}</span>
                   <span className="opacity-85">{v}</span>
                 </li>
               ))}
@@ -439,14 +449,13 @@ function ApplySection() {
                 </select>
               </label>
               {error && <p className="text-sm text-destructive md:col-span-2">{error}</p>}
-               <Button
+              <button
                 type="submit"
                 disabled={status === "sending"}
-                 size="lg"
-                 className="h-14 rounded-full px-6 text-sm font-bold uppercase tracking-wider shadow-lg md:col-span-2"
+                className="rounded-sm bg-primary px-6 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary/90 disabled:opacity-60 md:col-span-2"
               >
                 {status === "sending" ? "Sending…" : "Apply for Pilot Cohort"}
-               </Button>
+              </button>
             </form>
           )}
         </div>
