@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Wayfinding Through Adventure — Wayfinding Cycling
 
 This project was built with [Lovable](https://lovable.dev).
 
