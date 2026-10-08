@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
@@ -291,6 +291,15 @@ function Index() {
                 <li key={f} className="py-3 text-sm font-medium">{f}</li>
               ))}
             </ul>
+            {d.name === "Spain" && (
+              <Link
+                to="/camino-portugues"
+                className="mt-8 block border border-primary p-5 transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                <span className="text-xs uppercase tracking-[0.2em]">2027 Collection · Easter departure</span>
+                <span className="mt-1 block font-serif text-2xl">The Portuguese Camino — Porto to Santiago →</span>
+              </Link>
+            )}
             <a href="#apply" className="mt-8 text-sm font-semibold text-primary underline-offset-4 hover:underline">
               Register interest in {d.name} →
             </a>
