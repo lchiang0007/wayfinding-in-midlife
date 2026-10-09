@@ -160,6 +160,13 @@ function CaminoPage() {
               <h3 className="text-2xl">What is it?</h3>
               <p className="text-muted-foreground">Ride from Porto to Santiago de Compostela through northern Portugal and Galicia, combining Atlantic coast, historic towns, rural landscapes, and the final approach to one of Europe's great pilgrimage destinations. The route begins beside the Atlantic before following the Minho towards Valença and crossing into Galicia at Tui. From there, it continues through Pontevedra and Padrón before reaching Santiago.</p>
               <p className="text-muted-foreground">This is less about completing a cycling challenge than experiencing a journey with a clear destination. Expect coastal landscapes, medieval towns, vineyards, forests, and plenty of opportunities to stop for food, coffee, and conversation. The Semana Santa departure gives the trip a natural finale: arrive in Santiago on Saturday and experience Easter Sunday in the city.</p>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-l-2 border-primary bg-primary/5 px-6 py-5">
+                <p className="font-serif text-2xl italic text-primary">No bike? No problem!</p>
+                <p className="text-muted-foreground">
+                  We can arrange a rental bike for you — fitted, serviced and waiting in Porto.
+                  Tell us your frame size when you apply and we'll handle the rest.
+                </p>
+              </div>
               <h3 className="pt-4 text-2xl">Who is it for?</h3>
               <p className="text-muted-foreground">For recreational cyclists looking for a meaningful multi-day adventure rather than a sportive. Riders should be comfortable with 40–60 km days and occasional longer or more demanding sections.</p>
             </div>
