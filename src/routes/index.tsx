@@ -37,7 +37,27 @@ const NAV = [
   ["Apply / Contact", "#apply"],
 ] as const;
 
-const DESTINATIONS = [
+type Destination = {
+  name: string;
+  route: string;
+  region: string;
+  img: string;
+  facts: string[];
+  line: string;
+  camino?: boolean;
+  comingSoon?: boolean;
+};
+
+const DESTINATIONS: Destination[] = [
+  {
+    name: "Iberian Peninsula",
+    route: "Camino de Santiago",
+    region: "Castilla / Galicia / Porto",
+    img: spain,
+    facts: ["7 Days", "Gravel & Castilian Plateau", "March / 2027"],
+    line: "Remote mountains, local wine and historic routes through rugged, authentic Iberia.",
+    camino: true,
+  },
   {
     name: "Patagonia",
     route: "Carretera Austral & Tierra del Fuego",
@@ -45,14 +65,7 @@ const DESTINATIONS = [
     img: patagonia,
     facts: ["7–10 Days", "Gravel & Wild Frontier", "Dec–Jan Season"],
     line: "Fjords, glaciers and the end of the world. Wild camping in lush wilderness.",
-  },
-  {
-    name: "Spain",
-    route: "Camino de Santiago & Montañas Vascas",
-    region: "Castilla / Galicia / Euskadi",
-    img: spain,
-    facts: ["7 Days", "Gravel & Castilian Plateau", "Spring / Autumn"],
-    line: "Remote mountains, local wine and historic routes through rugged, authentic Iberia.",
+    comingSoon: true,
   },
   {
     name: "Iceland",
@@ -61,6 +74,7 @@ const DESTINATIONS = [
     img: iceland,
     facts: ["7 Days", "Remote Fjords & Hot Springs", "Summer Season"],
     line: "Sub-arctic frontier, low traffic, geothermal marvels and gravel mountain passes.",
+    comingSoon: true,
   },
   {
     name: "Japan",
@@ -69,6 +83,7 @@ const DESTINATIONS = [
     img: japan,
     facts: ["7 Days", "Off-the-beaten-path Passes", "Spring / Autumn"],
     line: "Ancient routes, quiet zen temples, local cuisine — and plenty of climbing.",
+    comingSoon: true,
   },
 ];
 
@@ -268,6 +283,9 @@ function Index() {
               }`}
             >
               {x.name}
+              {x.comingSoon && (
+                <span className="ml-2 inline-block size-1.5 rounded-full bg-primary align-middle" />
+              )}
             </button>
           ))}
         </div>
@@ -282,6 +300,11 @@ function Index() {
             className="aspect-[4/5] w-full rounded-sm object-cover animate-in fade-in duration-500 md:col-span-3"
           />
           <div className="flex flex-col justify-end md:col-span-2">
+            {d.comingSoon && (
+              <span className="mb-5 inline-flex w-fit items-center gap-2 border border-primary px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-primary">
+                Coming Soon
+              </span>
+            )}
             <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">{d.region}</p>
             <h3 className="mt-2 text-5xl">{d.name}</h3>
             <p className="mt-1 font-serif text-2xl italic text-primary">{d.route}</p>
@@ -291,7 +314,7 @@ function Index() {
                 <li key={f} className="py-3 text-sm font-medium">{f}</li>
               ))}
             </ul>
-            {d.name === "Spain" && (
+            {d.camino && (
               <Link
                 to="/camino-portugues"
                 className="mt-8 block border border-primary p-5 transition-colors hover:bg-primary hover:text-primary-foreground"
@@ -301,8 +324,16 @@ function Index() {
               </Link>
             )}
             <a href="#apply" className="mt-8 text-sm font-semibold text-primary underline-offset-4 hover:underline">
-              Register interest in {d.name} →
+              {d.comingSoon
+                ? `Register to be alerted for ${d.name} →`
+                : `Register interest in ${d.name} →`}
             </a>
+            {d.comingSoon && (
+              <p className="mt-2 text-sm text-muted-foreground">
+                Dates for {d.name} are being confirmed — leave your details and we'll let you know
+                the moment registration opens.
+              </p>
+            )}
           </div>
         </div>
       </section>
