@@ -29,7 +29,7 @@ export const Route = createFileRoute("/camino-portugues")({
 });
 
 const DAYS = [
-  ["Arrival in Porto", null, "Meet the group, check your bikes, and explore Porto's historic center before starting the journey.", "Porto"],
+  ["March 28: Arrival in Porto", null, "Meet the group, check your bikes, and explore Porto's historic center before starting the journey.", "Porto"],
   ["Porto to Esposende", 61, "Follow the Atlantic coastline north through coastal towns, beaches, and cycleways. Enjoy a gentle opening stage with plenty of stops along the way.", "Esposende"],
   ["Esposende to Caminha", 56, "Continue along the coast through Viana do Castelo and northern Portugal. Arrive at Caminha along the Minho estuary.", "Caminha"],
   ["Caminha to Valença", 30, "Follow the Minho River on a short recovery stage toward Valença. Spend the afternoon exploring its historic fortress and old town.", "Valença"],
