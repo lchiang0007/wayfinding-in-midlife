@@ -7,8 +7,8 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  // Tells Vite to prefix asset references with your repository name in production
-  base: process.env.NODE_ENV === "production" ? "/wayfinding-in-midlife/" : "/",
+  // Hardcode your exact repository name between slashes
+  base: "/wayfinding-in-midlife/",
   tanstackStart: {
     spa: {},
   },
