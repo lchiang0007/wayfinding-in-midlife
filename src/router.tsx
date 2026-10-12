@@ -10,6 +10,8 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
+    // Add basepath for GitHub Pages subfolder deployment
+    basepath: "/wayfinding-in-midlife",
   });
 
   return router;
