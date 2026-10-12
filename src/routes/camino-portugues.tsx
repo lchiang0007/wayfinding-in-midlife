@@ -29,15 +29,87 @@ export const Route = createFileRoute("/camino-portugues")({
 });
 
 const DAYS = [
-  ["Arrival in Porto", null, "Meet the group, check your bikes, and explore Porto's historic center before starting the journey.", "Porto"],
-  ["Porto to Esposende", 61, "Follow the Atlantic coastline north through coastal towns, beaches, and cycleways. Enjoy a gentle opening stage with plenty of stops along the way.", "Esposende"],
-  ["Esposende to Caminha", 56, "Continue along the coast through Viana do Castelo and northern Portugal. Arrive at Caminha along the Minho estuary.", "Caminha"],
-  ["Caminha to Valença", 30, "Follow the Minho River on a short recovery stage toward Valença. Spend the afternoon exploring its historic fortress and old town.", "Valença"],
-  ["Valença to Pontevedra", 56, "Cross into Galicia at Tui on the queen stage. Ride through forests, rural lanes, and historic Camino paths to Pontevedra.", "Pontevedra"],
-  ["Pontevedra to Padrón", 41, "Ride through Galician countryside, vineyards, and wooded lanes. Pass Caldas de Reis before reaching Padrón in the Ulla valley.", "Padrón"],
-  ["Padrón to Santiago de Compostela", 25, "Ride the final kilometers through Iria Flavia and villages surrounding Santiago. Finish together in Praza do Obradoiro beneath the cathedral.", "Santiago de Compostela"],
-  ["Departure / Easter Sunday", null, "Experience Santiago and Semana Santa during a free morning. Collect your Compostela if eligible, or depart (optional extra night available).", null],
-] as const;
+  {
+    title: "Arrival in Porto",
+    km: null,
+    night: "Porto",
+    caption: "Meeting the group in Porto's historic center",
+    description: "Meet the group, check your bikes, and explore Porto's historic center before starting the journey.",
+    duration: "—",
+    altitude: "—",
+    highlights: "Group welcome · Bike fitting · Old town walk",
+  },
+  {
+    title: "Porto to Esposende",
+    km: 61,
+    night: "Esposende",
+    caption: "Rolling north along the Atlantic coastline",
+    description: "Follow the Atlantic coastline north through coastal towns, beaches, and cycleways. Enjoy a gentle opening stage with plenty of stops along the way.",
+    duration: "4–4.5 h",
+    altitude: "~350 m",
+    highlights: "Coastal cycleways · Beach stops · First ocean views",
+  },
+  {
+    title: "Esposende to Caminha",
+    km: 56,
+    night: "Caminha",
+    caption: "Viana do Castelo and the Minho estuary",
+    description: "Continue along the coast through Viana do Castelo and northern Portugal. Arrive at Caminha along the Minho estuary.",
+    duration: "3.5–4 h",
+    altitude: "~300 m",
+    highlights: "Viana do Castelo · Coastal villages · Minho estuary arrival",
+  },
+  {
+    title: "Caminha to Valença",
+    km: 30,
+    night: "Valença",
+    caption: "A riverside recovery day along the Minho",
+    description: "Follow the Minho River on a short recovery stage toward Valença. Spend the afternoon exploring its historic fortress and old town.",
+    duration: "2–2.5 h",
+    altitude: "~200 m",
+    highlights: "Minho River path · Valença fortress · Free afternoon",
+  },
+  {
+    title: "Valença to Pontevedra",
+    km: 56,
+    night: "Pontevedra",
+    caption: "Crossing into Galicia on the queen stage",
+    description: "Cross into Galicia at Tui on the queen stage. Ride through forests, rural lanes, and historic Camino paths to Pontevedra.",
+    duration: "4–4.5 h",
+    altitude: "~650 m",
+    highlights: "Tui border crossing · Galician forests · Historic Camino paths",
+  },
+  {
+    title: "Pontevedra to Padrón",
+    km: 41,
+    night: "Padrón",
+    caption: "Vineyards and wooded lanes of the Ulla valley",
+    description: "Ride through Galician countryside, vineyards, and wooded lanes. Pass Caldas de Reis before reaching Padrón in the Ulla valley.",
+    duration: "3–3.5 h",
+    altitude: "~400 m",
+    highlights: "Caldas de Reis · Vineyards · Padrón peppers",
+  },
+  {
+    title: "Padrón to Santiago de Compostela",
+    km: 25,
+    night: "Santiago de Compostela",
+    caption: "The final kilometers to Praza do Obradoiro",
+    description: "Ride the final kilometers through Iria Flavia and villages surrounding Santiago. Finish together in Praza do Obradoiro beneath the cathedral.",
+    duration: "1.5–2 h",
+    altitude: "~350 m",
+    highlights: "Iria Flavia · Group finish · Cathedral square arrival",
+  },
+  {
+    title: "Departure / Easter Sunday",
+    km: null,
+    night: null,
+    caption: "Semana Santa morning in Santiago",
+    description: "Experience Santiago and Semana Santa during a free morning. Collect your Compostela if eligible, or depart (optional extra night available).",
+    duration: "Free morning",
+    altitude: "—",
+    highlights: "Easter processions · Compostela collection · Farewell",
+  },
+];
 
 const SPECS = [
   ["Duration", "8 Days / 7 Nights"],
@@ -212,8 +284,38 @@ function CaminoPage() {
           </ol>
           <div className="lg:col-span-2">
             <div className="lg:sticky lg:top-24">
-              <Photo src={map} alt="Route map from Porto through Valença/Tui to Santiago de Compostela" ratio="aspect-[781/663]" />
-              <p className="mt-3 text-sm text-muted-foreground">Porto (Portugal) → Valença / Tui → Santiago de Compostela (Spain)</p>
+              {open === -1 || !day ? (
+                <>
+                  <Photo src={map} alt="Route map from Porto through Valença/Tui to Santiago de Compostela" ratio="aspect-[781/663]" />
+                  <p className="mt-3 text-sm text-muted-foreground">Porto (Portugal) → Valença / Tui → Santiago de Compostela (Spain)</p>
+                  <p className="mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">Select a day to see its details</p>
+                </>
+              ) : (
+                <div key={open} className="animate-in fade-in duration-300">
+                  <div className="flex aspect-[781/663] flex-col items-center justify-center overflow-hidden rounded-sm border bg-muted p-8 text-center">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-primary">Day {open + 1} · Image placeholder</p>
+                    <p className="mt-3 max-w-sm font-serif text-2xl italic text-muted-foreground">{day.caption}</p>
+                  </div>
+                  <p className="mt-3 text-sm text-muted-foreground">{day.caption}</p>
+                  <p className="mt-4 text-muted-foreground">{day.description}</p>
+                  <dl className="mt-6 grid grid-cols-3 gap-4 border-y py-4">
+                    <div>
+                      <dt className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Duration</dt>
+                      <dd className="mt-1 font-serif text-xl">{day.duration}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Distance</dt>
+                      <dd className="mt-1 font-serif text-xl">{day.km ? `${day.km} km` : "—"}</dd>
+                    </div>
+                    <div>
+                      <dt className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">Altitude gain</dt>
+                      <dd className="mt-1 font-serif text-xl">{day.altitude}</dd>
+                    </div>
+                  </dl>
+                  <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">Highlights</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{day.highlights}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
