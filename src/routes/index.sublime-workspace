@@ -1,1 +1,300 @@
-{}
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"previe",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"previ",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"preview",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"brow",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"nn",
+				"Notes: Inbox"
+			],
+			[
+				"ni",
+				"Notes: Inbox"
+			],
+			[
+				"nj",
+				"Notes: Jotter"
+			],
+			[
+				"nl",
+				"Notes: List…"
+			],
+			[
+				"Plain No",
+				"Package Control: List Unmanaged Packages"
+			],
+			[
+				"packagein",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"markdownpre",
+				"MarkdownLivePreview: Open Preview"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"preferences",
+				"Preferences: Settings"
+			],
+			[
+				"packc",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Install Package Control"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/P/Lolitos/Passion Project/App/wayfinding-in-midlife/src/routes/index.tsx",
+		"/P/Lolitos/Passion Project/App/wayfinding-in-midlife/src/routes/camino-portugues.tsx",
+		"/P/Lolitos/Passion Project/App/wayfinding-in-midlife/vite.config.ts",
+		"/P/Lolitos/Passion Project/App/wayfinding-in-midlife/package.json",
+		"/P/Lolitos/Passion Project/App/wayfinding-in-midlife/src/routes/README.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/HH Financials/2026-10 Hearthstone_CFO_Memory_Q4_2026_Handoff (for new thread).md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/HH Financials/2026-10 Household_Expense_Classification_Model.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/HH Financials/CFO Prompt.md",
+		"/P/Lolitos/Sublime/Personal/2026 Summer Vacay/2026 Summer Vacation Planning.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/Investments/EUR_Strategy_December_2027_Briefing - TO BE READ.md",
+		"/P/Lolitos/Passion Project/App/wayfinding-in-midlife/.output/nitro.json",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/HH Financials/Household_Expense_Classification_Model.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/HH Financials/HouseHold Expenses CSV Structure.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/HH Financials/Classification Model Prompt.md",
+		"/C/Users/luisc/Downloads/Lyon_to_Sardinia_Road_Trip_Proposal_Aug2026.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/HH Financials/Historic Household Expenses.csv",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/LLM Prompt v2.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/FIRE/FIRE_FEASIBILITY_REPORT_2026.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/HH Financials/HouseHold Expenses CSV Strcuture.md",
+		"/C/Users/luisc/Downloads/ride-0-2026-06-12-23-16-38.gpx",
+		"/C/Users/luisc/Downloads/ride-0-2026-06-13-14-29-08.gpx",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/## Investment Positions as of 2026-03.md",
+		"/C/Users/luisc/Downloads/route_waypoints (1).gpx",
+		"/P/GPX/Badlands/waypoints.gpx",
+		"/C/Users/luisc/Downloads/Transpirenaica_Coaching_Handover_v1.0.md",
+		"/P/Lolitos/Sublime/Personal/2026 Summer Vacay/# 🚴 Loire Valley Bikepacking Trip Memory Prompt.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/EUR_Bond_Ladder_Deployment_Plan.md",
+		"/C/Users/luisc/Downloads/EUR_Bond_Ladder_Deployment_Plan_1.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/FIRE_FEASIBILITY_REPORT_2026.md",
+		"/P/Lolitos/Sublime/Personal/Training/Transpirenaica_Coaching_Handover_v1.0.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/EUR_Strategy_December_2027_Briefing - TO BE READ.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/## Cash assets in EURO as of 2026-03.md",
+		"/P/Lolitos/Sublime/Personal/FIRE Analysis/2026-05-25 Letras 03M DetalleSuscripcionBoletin_0026083874.pdf",
+		"/C/Users/luisc/Downloads/waypoints.gpx",
+		"/C/Users/luisc/Downloads/COLNAMEKMGAIN.txt",
+		"/C/Users/luisc/Downloads/route_waypoints.gpx",
+		"/C/Users/luisc/Downloads/test.gpx",
+		"/P/GPX/Badlands/BADLANDS2026v1 FullWaypoints noEmojis.gpx",
+		"/C/Users/luisc/Downloads/BADLANDS_2026_Complete.gpx",
+		"/P/GPX/Badlands/Selected Data from BRM1000.gpx",
+		"/P/GPX/Badlands/BADLANDS2026v1.gpx",
+		"/Users/luischiang/Library/Application Support/Sublime Text/Packages/User/Markdown.sublime-settings",
+		"/Users/luischiang/Library/Application Support/Sublime Text/Packages/User/Notes.sublime-settings",
+		"/Users/luischiang/Dropbox/Sublime/Inbox.note",
+		"/Users/luischiang/Dropbox/Notes/.brain/Inbox.note",
+		"/Users/luischiang/Dropbox/Notes/Test.note",
+		"/Users/luischiang/Library/Application Support/Sublime Text/Packages/PlainNotes/Notes.sublime-settings",
+		"/Users/luischiang/Dropbox/Sublime/Personal/internetHKG Terminal SSH from MacOS",
+		"/Users/luischiang/Dropbox/Sublime/IBM/Nuestro portfolio de servicios de BackOffice Comer",
+		"/Users/luischiang/Dropbox/Sublime/IBM/AI Prompts/Prompt for Perplexity to Respond to my questions",
+		"/Users/luischiang/Dropbox/Sublime/Personal/Leila Medical Contacts",
+		"/Users/luischiang/Dropbox/Sublime/IBM/AI Prompts/NPS Analysis Prompt for Business Case Customer Service",
+		"/Users/luischiang/Dropbox/Sublime/IBM/2025-05-06 LH Meeting",
+		"/Users/luischiang/pCloud Drive/Lolos Folder/Sublime/Work Notes/Budapest BPO Sesssion.md",
+		"/Users/luischiang/Dropbox/Sublime/Orange Backoffice - Ignacio Lopez",
+		"/Users/luischiang/Downloads/etom-cc-mapping.mermaid",
+		"/Users/luischiang/Downloads/activity_17701448338.tcx",
+		"/Users/luischiang/Downloads/allBackupScripts",
+		"/Users/luischiang/Dropbox/Personal/Newmac/Passwords.csv"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 98.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"pinned_build_system": "",
+	"project": "index.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"plainno",
+				"Personal/internetHKG Terminal SSH from MacOS"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 501.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"P:\\Lolitos\\Sublime\\Personal\\Lolo.sublime-project"
+			]
+		],
+		"width": 381.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 331.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
