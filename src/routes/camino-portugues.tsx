@@ -147,7 +147,8 @@ function Photo({ src, alt, ratio = "aspect-[4/3]", className = "" }: { src: stri
 }
 
 function CaminoPage() {
-  const [open, setOpen] = useState(0);
+  const [open, setOpen] = useState(-1);
+  const day = open === -1 ? null : DAYS[open];
 
   return (
     <div className="min-h-screen">
@@ -265,18 +266,18 @@ function CaminoPage() {
         <h2 className="mt-4 text-4xl leading-tight md:text-6xl">Porto → Santiago, day by day.</h2>
         <div className="mt-12 grid gap-12 lg:grid-cols-5">
           <ol className="divide-y border-y lg:col-span-3">
-            {DAYS.map(([title, km, details, night], i) => (
-              <li key={title}>
+            {DAYS.map((d, i) => (
+              <li key={d.title}>
                 <button onClick={() => setOpen(open === i ? -1 : i)} aria-expanded={open === i} className="flex w-full items-baseline gap-6 py-5 text-left">
                   <span className="w-14 shrink-0 text-xs font-semibold uppercase tracking-[0.2em] text-primary">Day {i + 1}</span>
-                  <span className="flex-1 font-serif text-2xl">{title}</span>
-                  {km && <span className="text-sm text-muted-foreground">{km} km</span>}
+                  <span className="flex-1 font-serif text-2xl">{d.title}</span>
+                  {d.km && <span className="text-sm text-muted-foreground">{d.km} km</span>}
                   <span className="text-muted-foreground">{open === i ? "−" : "+"}</span>
                 </button>
                 {open === i && (
                   <div className="pb-6 pl-20 animate-in fade-in duration-300">
-                    <p className="text-muted-foreground">{details}</p>
-                    {night && <p className="mt-3 text-xs uppercase tracking-[0.2em]">Overnight · <span className="text-primary">{night}</span></p>}
+                    <p className="text-muted-foreground">{d.description}</p>
+                    {d.night && <p className="mt-3 text-xs uppercase tracking-[0.2em]">Overnight · <span className="text-primary">{d.night}</span></p>}
                   </div>
                 )}
               </li>
