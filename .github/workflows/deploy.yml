@@ -30,7 +30,7 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install  # <-- Changed from npm ci to npm install
 
       - name: Build static site
         run: npm run build
