@@ -7,8 +7,14 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  // Hardcode your exact repository name between slashes
+  // Standard Vite base path
   base: "/wayfinding-in-midlife/",
+  
+  // Vinxi / TanStack Start server configuration for subpath deployment
+  server: {
+    baseURL: "/wayfinding-in-midlife/",
+  },
+
   tanstackStart: {
     spa: {},
   },
