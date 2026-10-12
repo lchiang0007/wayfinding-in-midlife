@@ -7,14 +7,13 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  // Standard Vite base path
-  base: "/wayfinding-in-midlife/",
-  
-  // Vinxi / TanStack Start server configuration for subpath deployment
+  vite: {
+    // Vite base path must be nested inside the 'vite' object for the Lovable config wrapper
+    base: "/wayfinding-in-midlife/",
+  },
   server: {
     baseURL: "/wayfinding-in-midlife/",
   },
-
   tanstackStart: {
     spa: {},
   },
