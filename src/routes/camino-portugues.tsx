@@ -35,8 +35,8 @@ const DAYS = [
     night: "Porto",
     caption: "Meeting the group in Porto's historic center",
     description: "Meet the group, check your bikes, and explore Porto's historic center before starting the journey.",
-    duration: "—",
-    altitude: "—",
+    duration: "5-6 Hours",
+    altitude: "1000m",
     highlights: "Group welcome · Bike fitting · Old town walk",
   },
   {
