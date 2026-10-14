@@ -11,9 +11,6 @@ export default defineConfig({
     // Vite base path must be nested inside the 'vite' object for the Lovable config wrapper
     base: "/wayfinding-in-midlife/",
   },
-  server: {
-    baseURL: "/wayfinding-in-midlife/",
-  },
   tanstackStart: {
     spa: {},
   },
