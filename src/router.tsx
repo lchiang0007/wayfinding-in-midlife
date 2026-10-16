@@ -10,8 +10,8 @@ export const getRouter = () => {
     context: { queryClient },
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
-    // Add basepath for GitHub Pages subfolder deployment
-    basepath: "/wayfinding-in-midlife",
+    // Match the asset base in both root-hosted Lovable and GitHub Pages builds.
+    basepath: import.meta.env.BASE_URL,
   });
 
   return router;

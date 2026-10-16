@@ -8,8 +8,8 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   vite: {
-    // Vite base path must be nested inside the 'vite' object for the Lovable config wrapper
-    base: "/wayfinding-in-midlife/",
+    // GitHub Pages opts into its subfolder; Lovable serves from the site root.
+    base: process.env.GITHUB_PAGES === "true" ? "/wayfinding-in-midlife/" : "/",
   },
   tanstackStart: {
     spa: {},
