@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "./styles/palette-original.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -35,28 +36,40 @@
 }
 
 :root {
-  --background: oklch(0.965 0.012 80);   /* warm sand paper */
-  --foreground: oklch(0.24 0.012 250);   /* slate charcoal */
-  --card: oklch(0.985 0.008 80);
-  --card-foreground: oklch(0.24 0.012 250);
-  --popover: oklch(0.985 0.008 80);
-  --popover-foreground: oklch(0.24 0.012 250);
-  --primary: oklch(0.58 0.13 40);        /* terracotta */
-  --primary-foreground: oklch(0.98 0.01 80);
-  --secondary: oklch(0.91 0.02 80);
-  --secondary-foreground: oklch(0.24 0.012 250);
-  --muted: oklch(0.92 0.015 80);
-  --muted-foreground: oklch(0.46 0.012 250);
-  --accent: oklch(0.36 0.05 160);        /* deep forest */
-  --accent-foreground: oklch(0.97 0.01 80);
+  --background: oklch(0.98956 0.00212 197.122);
+  --foreground: oklch(0.31456 0.02226 200.655);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  --primary: oklch(0.54233 0.09071 198.762);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95188 0.01670 178.272);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--secondary);
+  --muted-foreground: oklch(0.50229 0.02735 196.314);
+  --accent: var(--secondary);
+  --accent-foreground: var(--foreground);
   --destructive: oklch(0.55 0.2 27);
-  --border: oklch(0.84 0.02 80);
-  --input: oklch(0.8 0.02 80);
-  --ring: oklch(0.58 0.13 40);
-  --ink: oklch(0.2 0.01 250);            /* charcoal band */
-  --ink-foreground: oklch(0.93 0.015 80);
-  --sand: oklch(0.82 0.05 75);
-  --forest: oklch(0.36 0.05 160);
+  --border: oklch(0.88448 0.02641 181.782);
+  --input: oklch(0.76207 0.03773 183.409);
+  --ring: var(--primary);
+  --ink: var(--secondary);
+  --ink-foreground: var(--foreground);
+  --coral: oklch(0.67255 0.15770 33.873);
+  --sand: oklch(0.51582 0.13790 33.446); /* darker coral for readable labels */
+  --forest: var(--primary);
+}
+
+/* Photo overlays retain contrast; all unillustrated bands become sea glass. */
+:root:not([data-palette="original"]) section.relative.bg-ink {
+  --ink: oklch(0.31456 0.02226 200.655);
+  --ink-foreground: oklch(0.98956 0.00212 197.122);
+  --sand: oklch(0.89452 0.05673 37.215);
+}
+
+:root:not([data-palette="original"]) .border-sand {
+  border-color: var(--coral);
 }
 
 @layer base {

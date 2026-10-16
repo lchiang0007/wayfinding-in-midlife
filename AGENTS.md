@@ -11,3 +11,4 @@
 
 - Use the Vite base URL as the router basepath; only GitHub Pages builds opt into the repository subfolder via GITHUB_PAGES, so Lovable root URLs and GitHub subfolder URLs both work.
 - Use router Links for cross-page application anchors so navigation honors the active deployment basepath.
+- Keep palettes in global semantic tokens and preserve the original override in src/styles/palette-original.css; setting data-palette="original" on html restores it without changing page content or imagery.
