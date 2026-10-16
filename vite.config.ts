@@ -9,7 +9,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
   vite: {
     // GitHub Pages opts into its subfolder; Lovable serves from the site root.
-    base: process.env.GITHUB_PAGES === "true" ? "/wayfinding-in-midlife/" : "/",
+    base: process.env['GITHUB_PAGES'] === "true" ? "/wayfinding-in-midlife/" : "/",
   },
   tanstackStart: {
     spa: {},
