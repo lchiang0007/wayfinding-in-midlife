@@ -36,41 +36,49 @@
 }
 
 :root {
-  --background: oklch(0.98956 0.00212 197.122);
-  --foreground: oklch(0.31456 0.02226 200.655);
-  --card: oklch(1 0 0);
+  /* Sunlit Iberia */
+  --background: #FFF8ED;
+  --foreground: #26352D;
+  --card: #FFFFFF;
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
-  --primary: oklch(0.54233 0.09071 198.762);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95188 0.01670 178.272);
+  --terracotta: #C85D3A;
+  --primary: #B4502F; /* terracotta, deepened for AA contrast with white text */
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1E5D2;
   --secondary-foreground: var(--foreground);
   --muted: var(--secondary);
-  --muted-foreground: oklch(0.50229 0.02735 196.314);
+  --muted-foreground: #5C665D;
   --accent: var(--secondary);
   --accent-foreground: var(--foreground);
   --destructive: oklch(0.55 0.2 27);
-  --border: oklch(0.88448 0.02641 181.782);
-  --input: oklch(0.76207 0.03773 183.409);
-  --ring: var(--primary);
+  --border: #E6D7C0;
+  --input: #CDBB9F;
+  --ring: #E8A33D;
   --ink: var(--secondary);
   --ink-foreground: var(--foreground);
-  --coral: oklch(0.67255 0.15770 33.873);
-  --sand: oklch(0.51582 0.13790 33.446); /* darker coral for readable labels */
+  --marigold: #E8A33D;
+  --olive: #65734B;
+  --coral: var(--marigold);
+  --sand: var(--olive); /* supporting labels */
   --forest: var(--primary);
 }
 
-/* Photo overlays retain contrast; all unillustrated bands become sea glass. */
+/* Header: light ivory bar */
+:root:not([data-palette="original"]) header.fixed { --ink: var(--background); }
+
+/* Photo overlays retain contrast. */
 :root:not([data-palette="original"]) section.relative.bg-ink {
-  --ink: oklch(0.31456 0.02226 200.655);
-  --ink-foreground: oklch(0.98956 0.00212 197.122);
-  --sand: oklch(0.89452 0.05673 37.215);
+  --ink: #26352D;
+  --ink-foreground: #FFF8ED;
+  --sand: #E8A33D;
 }
 
-:root:not([data-palette="original"]) .border-sand {
-  border-color: var(--coral);
-}
+:root:not([data-palette="original"]) .border-sand { border-color: var(--marigold); }
+
+:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+a, button { transition: color .2s, background-color .2s, opacity .2s; }
 
 @layer base {
   * { @apply border-border; }

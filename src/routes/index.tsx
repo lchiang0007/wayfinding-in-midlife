@@ -1,3 +1,4 @@
+import { Logo, LogoMark } from "@/components/Logo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { z } from "zod";
@@ -103,7 +104,7 @@ function Index() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-ink-foreground/10 bg-ink/85 text-ink-foreground backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
           <a href="#top" className="text-sm font-semibold tracking-[0.3em]">
-            WAYFINDING <span className="text-primary">//</span> CYCLING
+            <Logo />
           </a>
           <nav className="hidden gap-8 text-sm lg:flex">
             {NAV.map(([l, h]) => (
@@ -501,7 +502,7 @@ function ApplySection() {
         </div>
       </div>
       <div className="mt-24 flex flex-col justify-between gap-2 border-t pt-6 text-xs text-muted-foreground md:flex-row">
-        <span className="tracking-[0.3em]">WAYFINDING // CYCLING</span>
+        <span className="flex items-center gap-2 tracking-[0.3em]"><LogoMark className="h-4 w-auto" />WAYFINDING // CYCLING</span>
         <span>Concept definition & validation phase · 2026</span>
       </div>
     </footer>

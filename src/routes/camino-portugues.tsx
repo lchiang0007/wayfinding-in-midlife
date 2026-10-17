@@ -1,3 +1,4 @@
+import { Logo, LogoMark } from "@/components/Logo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import hero from "@/assets/camino-hero.jpg";
@@ -187,7 +188,7 @@ function CaminoPage() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-ink-foreground/10 bg-ink/85 text-ink-foreground backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
           <Link to="/" className="text-sm font-semibold tracking-[0.3em]">
-            WAYFINDING <span className="text-primary">//</span> CYCLING
+            <Logo />
           </Link>
           <nav className="hidden gap-8 text-sm lg:flex">
             {[["The Journey", "#about"], ["At a Glance", "#overview"], ["Itinerary", "#itinerary"], ["Logistics", "#logistics"]].map(([l, h]) => (
@@ -404,7 +405,7 @@ function CaminoPage() {
           <a className="text-primary hover:underline" href="mailto:hello@wayfindingcycling.com">hello@wayfindingcycling.com</a>
         </p>
         <div className="mt-24 flex flex-col justify-between gap-2 border-t pt-6 text-left text-xs text-muted-foreground md:flex-row">
-          <span className="tracking-[0.3em]">WAYFINDING // CYCLING</span>
+          <span className="flex items-center gap-2 tracking-[0.3em]"><LogoMark className="h-4 w-auto" />WAYFINDING // CYCLING</span>
           <span>Concept definition & validation phase · 2027 pilot</span>
         </div>
       </footer>
