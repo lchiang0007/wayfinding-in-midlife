@@ -195,7 +195,7 @@ function CaminoPage() {
               <a key={h} href={h} className="opacity-75 transition-opacity hover:opacity-100">{l}</a>
             ))}
           </nav>
-          <Link to="/" hash="apply" className="rounded-sm bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary/90">
+          <Link to="/" hash="apply" className="rounded-sm bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover">
             Apply for Pilot Cohort
           </Link>
         </div>
@@ -222,7 +222,7 @@ function CaminoPage() {
             </span>
           </h1>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link to="/" hash="apply" className="rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90">Apply for Pilot Cohort</Link>
+            <Link to="/" hash="apply" className="rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover">Apply for Pilot Cohort</Link>
             <a href="#itinerary" className="rounded-sm border border-ink-foreground/40 px-6 py-3 text-sm font-semibold hover:bg-ink-foreground/10">Scroll to Itinerary</a>
           </div>
         </div>
@@ -397,15 +397,15 @@ function CaminoPage() {
           "The destination is simply the setting. You don't need to know where you are going before you start moving."
         </blockquote>
         <p className="mt-6 text-muted-foreground">Join us for the 2027 pilot cohort across Portugal and Spain.</p>
-        <Link to="/" hash="apply" className="mt-10 inline-block rounded-sm bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary/90">
+        <Link to="/" hash="apply" className="mt-10 inline-block rounded-sm bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover">
           Apply for the 2027 Pilot Cohort
         </Link>
         <p className="mt-8 text-sm text-muted-foreground">
           Selective small-group departure. Enquiries:{" "}
           <a className="text-primary hover:underline" href="mailto:hello@wayfindingcycling.com">hello@wayfindingcycling.com</a>
         </p>
-        <div className="mt-24 flex flex-col justify-between gap-2 border-t pt-6 text-left text-xs text-muted-foreground md:flex-row">
-          <span className="flex items-center gap-2 tracking-[0.3em]"><LogoMark className="h-4 w-auto" />WAYFINDING // CYCLING</span>
+        <div className="mt-24 flex flex-col justify-between gap-2 rounded-sm bg-forest-deep px-6 py-6 text-forest-deep-foreground/80 text-left text-xs md:flex-row">
+          <span className="flex items-center gap-2 tracking-[0.3em] text-forest-deep-foreground"><LogoMark className="h-4 w-auto" />WAYFINDING // CYCLING</span>
           <span>Concept definition & validation phase · 2027 pilot</span>
         </div>
       </footer>

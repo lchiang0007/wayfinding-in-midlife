@@ -33,18 +33,25 @@
   --color-ink-foreground: var(--ink-foreground);
   --color-sand: var(--sand);
   --color-forest: var(--forest);
+  --color-primary-hover: var(--primary-hover);
+  --color-input-surface: var(--input-surface);
+  --color-forest-deep: var(--forest-deep);
+  --color-forest-deep-foreground: var(--forest-deep-foreground);
+  --color-olive: var(--olive);
+  --color-marigold: var(--marigold);
 }
 
 :root {
   /* Sunlit Iberia */
   --background: #FFF8ED;
   --foreground: #26352D;
-  --card: #FFFFFF;
+  --card: #FFF8ED;
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
   --terracotta: #C85D3A;
-  --primary: #B4502F; /* terracotta, deepened for AA contrast with white text */
+  --primary: #C85D3A;
+  --primary-hover: #A9472B;
   --primary-foreground: #FFFFFF;
   --secondary: #F1E5D2;
   --secondary-foreground: var(--foreground);
@@ -53,20 +60,29 @@
   --accent: var(--secondary);
   --accent-foreground: var(--foreground);
   --destructive: oklch(0.55 0.2 27);
-  --border: #E6D7C0;
-  --input: #CDBB9F;
+  --border: #E3D3BA;
+  --input: #D8C6AB;
+  --input-surface: #FFFFFF;
   --ring: #E8A33D;
   --ink: var(--secondary);
   --ink-foreground: var(--foreground);
   --marigold: #E8A33D;
   --olive: #65734B;
   --coral: var(--marigold);
-  --sand: var(--olive); /* supporting labels */
-  --forest: var(--primary);
+  --sand: var(--terracotta); /* eyebrows & labels */
+  --forest: var(--olive);
+  --forest-deep: #26352D;
+  --forest-deep-foreground: #FFF8ED;
 }
 
-/* Header: light ivory bar */
-:root:not([data-palette="original"]) header.fixed { --ink: var(--background); }
+/* Header: warm ivory bar, deep green text, terracotta hover */
+:root:not([data-palette="original"]) header.fixed {
+  --ink: var(--background);
+  --ink-foreground: var(--foreground);
+  border-bottom-color: var(--border);
+}
+:root:not([data-palette="original"]) header.fixed nav a { opacity: 1; }
+:root:not([data-palette="original"]) header.fixed nav a:hover { color: var(--primary); }
 
 /* Photo overlays retain contrast. */
 :root:not([data-palette="original"]) section.relative.bg-ink {
@@ -76,6 +92,7 @@
 }
 
 :root:not([data-palette="original"]) .border-sand { border-color: var(--marigold); }
+:root:not([data-palette="original"]) main a:not([class*="bg-"]):hover { color: var(--primary-hover); }
 
 :focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 a, button { transition: color .2s, background-color .2s, opacity .2s; }
