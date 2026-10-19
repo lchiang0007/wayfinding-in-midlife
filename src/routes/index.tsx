@@ -115,7 +115,7 @@ function Index() {
           </nav>
           <a
             href="#apply"
-            className="rounded-sm bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary/90"
+            className="rounded-sm bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover"
           >
             Apply for Pilot Cohort
           </a>
@@ -149,7 +149,7 @@ function Index() {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#apply"
-              className="rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+              className="rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover"
             >
               Request Beta Invitation
             </a>
@@ -439,7 +439,7 @@ function ApplySection() {
   }
 
   const field =
-    "mt-2 w-full rounded-sm border border-input bg-card px-4 py-3 text-foreground outline-none focus:border-primary focus:ring-1 focus:ring-ring";
+    "mt-2 w-full rounded-sm border border-input bg-input-surface px-4 py-3 text-foreground outline-none focus:border-primary focus:ring-1 focus:ring-ring";
 
   return (
     <footer id="apply" className="mx-auto max-w-7xl px-6 py-28">
@@ -493,7 +493,7 @@ function ApplySection() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="rounded-sm bg-primary px-6 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary/90 disabled:opacity-60 md:col-span-2"
+                className="rounded-sm bg-primary px-6 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover disabled:opacity-60 md:col-span-2"
               >
                 {status === "sending" ? "Sending…" : "Apply for Pilot Cohort"}
               </button>
@@ -501,8 +501,8 @@ function ApplySection() {
           )}
         </div>
       </div>
-      <div className="mt-24 flex flex-col justify-between gap-2 border-t pt-6 text-xs text-muted-foreground md:flex-row">
-        <span className="flex items-center gap-2 tracking-[0.3em]"><LogoMark className="h-4 w-auto" />WAYFINDING // CYCLING</span>
+      <div className="mt-24 flex flex-col justify-between gap-2 rounded-sm bg-forest-deep px-6 py-6 text-forest-deep-foreground/80 text-xs md:flex-row">
+        <span className="flex items-center gap-2 tracking-[0.3em] text-forest-deep-foreground"><LogoMark className="h-4 w-auto" />WAYFINDING // CYCLING</span>
         <span>Concept definition & validation phase · 2026</span>
       </div>
     </footer>
