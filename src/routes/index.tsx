@@ -482,10 +482,12 @@ function ApplySection() {
                 <textarea name="motivation" rows={4} maxLength={2000} className={field} />
               </label>
               <label className="text-sm font-medium md:col-span-2">Preferred destination
-                <select name="preferred_destination" className={field} defaultValue="">
-                  <option value="">No preference yet</option>
-                  {DESTINATIONS.map((x) => (
-                    <option key={x.name} value={x.name}>{x.name} — {x.route}</option>
+                <select name="preferred_destination" className={field} defaultValue="El Camino Portugués">
+                  <option value="El Camino Portugués">El Camino Portugués — Porto to Santiago</option>
+                  {DESTINATIONS.filter((x) => x.comingSoon).map((x) => (
+                    <option key={x.name} value={x.name} disabled className="cursor-not-allowed opacity-50">
+                      {x.name} — {x.route} · Coming Soon
+                    </option>
                   ))}
                 </select>
               </label>
