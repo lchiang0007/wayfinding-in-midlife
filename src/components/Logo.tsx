@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/wayfinding-cycling-logo.png.asset.json";
+import logoUrl from "@/assets/wayfinding-cycling-logo.png";
 
 export function LogoMark({ className = "h-7 w-auto" }: { className?: string }) {
   return (
@@ -13,7 +13,7 @@ export function LogoMark({ className = "h-7 w-auto" }: { className?: string }) {
 export function Logo() {
   return (
     <img
-      src={logoAsset.url}
+      src={logoUrl}
       alt="Wayfinding Cycling"
       width={1876}
       height={593}
