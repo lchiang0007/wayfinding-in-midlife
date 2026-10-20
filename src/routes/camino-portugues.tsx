@@ -173,7 +173,6 @@ const MAILTO =
   "&body=Dear%20Luis%2C%0D%0A%0D%0AI%20am%20interested%20in%20joining%20the%20pilot%20cohort%20for%20the%20Wayfinding%20El%20Camino%20Portugu%C3%A9s%20expedition.%0D%0A%0D%0AI%20would%20love%20to%20learn%20more%20about%20the%20itinerary%2C%20logistics%2C%20and%20next%20steps%20for%20securing%20a%20spot.%0D%0A%0D%0ABest%20regards%2C";
 
 // Replace with the real Vimeo video ID when available.
-const VIMEO_ID = "76979871";
 
 function Eyebrow({ children, className = "text-primary" }: { children: React.ReactNode; className?: string }) {
   return <p className={`text-xs font-medium uppercase tracking-[0.25em] ${className}`}>{children}</p>;
@@ -213,8 +212,7 @@ function CaminoPage() {
       <section className="relative flex min-h-screen items-end bg-ink text-ink-foreground">
         <img src={hero} alt="Camino waymarking stone with worn pilgrim shoes" className="absolute inset-0 h-full w-full object-cover opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/20" />
-        <div className="relative mx-auto grid w-full max-w-7xl items-end gap-12 px-6 pb-16 pt-32 lg:grid-cols-[1fr_auto]">
-          <div>
+        <div className="relative mx-auto w-full max-w-7xl px-6 pb-16 pt-32">
           <Link to="/" className="text-xs uppercase tracking-[0.2em] opacity-70 hover:opacity-100">← All destinations</Link>
           <div className="mt-6 flex flex-wrap gap-3">
             <span className="border border-ink-foreground/30 px-3 py-1 text-xs uppercase tracking-[0.2em]">
@@ -233,17 +231,6 @@ function CaminoPage() {
           <div className="mt-10 flex flex-wrap gap-4">
             <a href={MAILTO} className="rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover">Apply for Pilot Cohort</a>
             <a href="#itinerary" className="rounded-sm border border-ink-foreground/40 px-6 py-3 text-sm font-semibold hover:bg-ink-foreground/10">Scroll to Itinerary</a>
-          </div>
-          </div>
-          <div className="mx-auto aspect-[9/16] w-full max-w-xs overflow-hidden rounded-2xl bg-black shadow-2xl sm:max-w-sm lg:w-80">
-            <iframe
-              src={`https://player.vimeo.com/video/${VIMEO_ID}?title=0&byline=0&portrait=0`}
-              title="El Camino Portugués by bike"
-              className="h-full w-full"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-            />
           </div>
         </div>
       </section>
