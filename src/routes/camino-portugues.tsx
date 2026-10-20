@@ -167,14 +167,22 @@ const EXCLUDED = [
   ["Personal Extras", "Alcoholic beverages outside included dinners, souvenirs, and discretionary tips."],
 ];
 
+const MAILTO =
+  "mailto:lchiang0007@gmail.com?subject=" +
+  encodeURIComponent("I'm IN: Wayfinding el Camino Portugues") +
+  "&body=Dear%20Luis%2C%0D%0A%0D%0AI%20am%20interested%20in%20joining%20the%20pilot%20cohort%20for%20the%20Wayfinding%20El%20Camino%20Portugu%C3%A9s%20expedition.%0D%0A%0D%0AI%20would%20love%20to%20learn%20more%20about%20the%20itinerary%2C%20logistics%2C%20and%20next%20steps%20for%20securing%20a%20spot.%0D%0A%0D%0ABest%20regards%2C";
+
+// Replace with the real Vimeo video ID when available.
+const VIMEO_ID = "76979871";
+
 function Eyebrow({ children, className = "text-primary" }: { children: React.ReactNode; className?: string }) {
   return <p className={`text-xs font-medium uppercase tracking-[0.25em] ${className}`}>{children}</p>;
 }
 
-function Photo({ src, alt, ratio = "aspect-[4/3]", className = "" }: { src: string; alt: string; ratio?: string; className?: string }) {
+function Photo({ src, alt, ratio = "aspect-[4/3]", className = "", fit = "object-cover" }: { src: string; alt: string; ratio?: string; className?: string; fit?: string }) {
   return (
     <div className={`overflow-hidden rounded-sm border bg-muted ${ratio} ${className}`}>
-      <img src={src} alt={alt} loading="lazy" className="h-full w-full object-cover" />
+      <img src={src} alt={alt} loading="lazy" className={`h-full w-full ${fit}`} />
     </div>
   );
 }
@@ -195,9 +203,9 @@ function CaminoPage() {
               <a key={h} href={h} className="opacity-75 transition-opacity hover:opacity-100">{l}</a>
             ))}
           </nav>
-          <Link to="/" hash="apply" className="rounded-sm bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover">
+          <a href={MAILTO} className="rounded-sm bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover">
             Apply for Pilot Cohort
-          </Link>
+          </a>
         </div>
       </header>
 
@@ -205,7 +213,8 @@ function CaminoPage() {
       <section className="relative flex min-h-screen items-end bg-ink text-ink-foreground">
         <img src={hero} alt="Camino waymarking stone with worn pilgrim shoes" className="absolute inset-0 h-full w-full object-cover opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/20" />
-        <div className="relative mx-auto w-full max-w-7xl px-6 pb-16 pt-32">
+        <div className="relative mx-auto grid w-full max-w-7xl items-end gap-12 px-6 pb-16 pt-32 lg:grid-cols-[1fr_auto]">
+          <div>
           <Link to="/" className="text-xs uppercase tracking-[0.2em] opacity-70 hover:opacity-100">← All destinations</Link>
           <div className="mt-6 flex flex-wrap gap-3">
             <span className="border border-ink-foreground/30 px-3 py-1 text-xs uppercase tracking-[0.2em]">
@@ -222,8 +231,19 @@ function CaminoPage() {
             </span>
           </h1>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link to="/" hash="apply" className="rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover">Apply for Pilot Cohort</Link>
+            <a href={MAILTO} className="rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover">Apply for Pilot Cohort</a>
             <a href="#itinerary" className="rounded-sm border border-ink-foreground/40 px-6 py-3 text-sm font-semibold hover:bg-ink-foreground/10">Scroll to Itinerary</a>
+          </div>
+          </div>
+          <div className="mx-auto aspect-[9/16] w-full max-w-xs overflow-hidden rounded-2xl bg-black shadow-2xl sm:max-w-sm lg:w-80">
+            <iframe
+              src={`https://player.vimeo.com/video/${VIMEO_ID}?title=0&byline=0&portrait=0`}
+              title="El Camino Portugués by bike"
+              className="h-full w-full"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -320,13 +340,13 @@ function CaminoPage() {
             <div className="lg:sticky lg:top-24">
               {open === -1 || !day ? (
                 <>
-                  <Photo src={map} alt="Route map from Porto through Valença/Tui to Santiago de Compostela" ratio="aspect-[781/663]" />
+                  <Photo src={map} alt="Route map from Porto through Valença/Tui to Santiago de Compostela" ratio="aspect-[781/663]" fit="object-contain" />
                   <p className="mt-3 text-sm text-muted-foreground">Porto (Portugal) → Valença / Tui → Santiago de Compostela (Spain)</p>
                   <p className="mt-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">Select a day to see its details</p>
                 </>
               ) : (
                 <div key={open} className="animate-in fade-in duration-300">
-                  <Photo src={day.image} alt={day.alt} ratio="aspect-[781/663]" />
+                  <Photo src={day.image} alt={day.alt} ratio="aspect-[781/663]" fit="object-contain" />
                   <p className="mt-3 text-sm text-muted-foreground">{day.caption}</p>
                   <p className="mt-4 text-muted-foreground">{day.detail}</p>
                   <dl className="mt-6 grid grid-cols-3 gap-4 border-y py-4">
@@ -397,9 +417,9 @@ function CaminoPage() {
           "The destination is simply the setting. You don't need to know where you are going before you start moving."
         </blockquote>
         <p className="mt-6 text-muted-foreground">Join us for the 2027 pilot cohort across Portugal and Spain.</p>
-        <Link to="/" hash="apply" className="mt-10 inline-block rounded-sm bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover">
+        <a href={MAILTO} className="mt-10 inline-block rounded-sm bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover">
           Apply for the 2027 Pilot Cohort
-        </Link>
+        </a>
         <p className="mt-8 text-sm text-muted-foreground">
           Selective small-group departure. Enquiries:{" "}
           <a className="text-primary hover:underline" href="mailto:hello@wayfindingcycling.com">hello@wayfindingcycling.com</a>
