@@ -4,12 +4,12 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-  "dev": "vite dev",
-  "build": "vite build && node -e \"const fs=require('fs'); if(fs.existsSync('.output/public/_shell.html')){fs.copyFileSync('.output/public/_shell.html', '.output/public/index.html'); fs.copyFileSync('.output/public/_shell.html', '.output/public/404.html'); console.log('Successfully generated index.html and 404.html');}else{console.error('Error: Nitro did not generate _shell.html'); process.exit(1);}\"",
-  "build:dev": "vite build --mode development",
-  "preview": "npx serve -s .output/public",
-  "lint": "eslint .",
-  "format": "prettier --write ."
+    "dev": "vite dev",
+    "build": "vite build && node -e \"const fs=require('fs'); const p='.output/public'; const src = fs.existsSync(`${p}/index.html`) ? `${p}/index.html` : fs.existsSync(`${p}/_shell.html`) ? `${p}/_shell.html` : `${p}/200.html`; if(fs.existsSync(src)){ if(!fs.existsSync(`${p}/index.html`)) fs.copyFileSync(src, `${p}/index.html`); fs.copyFileSync(src, `${p}/404.html`); console.log('Successfully prepared index.html and 404.html for GitHub Pages'); } else { console.error('Error: No HTML file generated in .output/public'); process.exit(1); }\"",
+    "build:dev": "vite build --mode development",
+    "preview": "npx serve -s .output/public",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "overrides": {
     "rolldown": "1.2.1"
