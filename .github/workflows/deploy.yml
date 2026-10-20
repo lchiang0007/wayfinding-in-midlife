@@ -22,15 +22,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
       - name: Install dependencies
-        run: npm install  # <-- Changed from npm ci to npm install
+        run: npm install
 
       - name: Build static site
         env:
@@ -40,10 +40,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload static artifact (dist/client)
+      - name: Upload static artifact (.output/public)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/client'
+          path: '.output/public'
 
       - name: Deploy to GitHub Pages
         id: deployment
