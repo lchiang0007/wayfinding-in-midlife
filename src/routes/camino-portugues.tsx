@@ -173,7 +173,6 @@ const MAILTO =
   "&body=Dear%20Luis%2C%0D%0A%0D%0AI%20am%20interested%20in%20joining%20the%20pilot%20cohort%20for%20the%20Wayfinding%20El%20Camino%20Portugu%C3%A9s%20expedition.%0D%0A%0D%0AI%20would%20love%20to%20learn%20more%20about%20the%20itinerary%2C%20logistics%2C%20and%20next%20steps%20for%20securing%20a%20spot.%0D%0A%0D%0ABest%20regards%2C";
 
 // Replace with the real Vimeo video ID when available.
-const VIMEO_ID = "76979871";
 
 function Eyebrow({ children, className = "text-primary" }: { children: React.ReactNode; className?: string }) {
   return <p className={`text-xs font-medium uppercase tracking-[0.25em] ${className}`}>{children}</p>;
