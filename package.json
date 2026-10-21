@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && node -e \"const fs=require('fs'); const p='.output/public'; const src = fs.existsSync(`${p}/index.html`) ? `${p}/index.html` : fs.existsSync(`${p}/_shell.html`) ? `${p}/_shell.html` : `${p}/200.html`; if(fs.existsSync(src)){ if(!fs.existsSync(`${p}/index.html`)) fs.copyFileSync(src, `${p}/index.html`); fs.copyFileSync(src, `${p}/404.html`); console.log('Successfully prepared index.html and 404.html for GitHub Pages'); } else { console.error('Error: No HTML file generated in .output/public'); process.exit(1); }\"",
+    "build": "vite build && node -e \"const fs = require('fs'); const dir = '.output/public'; const indexFile = dir + '/index.html'; const shellFile = dir + '/_shell.html'; const fallbackFile = dir + '/200.html'; let src = ''; if (fs.existsSync(indexFile)) src = indexFile; else if (fs.existsSync(shellFile)) src = shellFile; else if (fs.existsSync(fallbackFile)) src = fallbackFile; if (src) { if (!fs.existsSync(indexFile)) fs.copyFileSync(src, indexFile); fs.copyFileSync(src, dir + '/404.html'); console.log('Successfully prepared index.html and 404.html for GitHub Pages'); } else { console.error('Error: No HTML file generated in .output/public'); process.exit(1); }\"",
     "build:dev": "vite build --mode development",
     "preview": "npx serve -s .output/public",
     "lint": "eslint .",
