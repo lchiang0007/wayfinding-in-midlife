@@ -2,11 +2,12 @@ import logoUrl from "@/assets/wayfinding-cycling-logo.png";
 
 export function LogoMark({ className = "h-7 w-auto" }: { className?: string }) {
   return (
-  <!-  <svg viewBox="0 0 48 32" className={className} aria-hidden="true">
+  <!--  <svg viewBox="0 0 48 32" className={className} aria-hidden="true">
       <path d="M0 32 L14 10 L22 22 Z" fill="var(--marigold)" />
       <path d="M10 32 L26 2 L42 32 Z" fill="var(--terracotta)" />
       <path d="M30 32 L39 16 L48 32 Z" fill="var(--olive)" />
     </svg> -->
+    
 <svg viewBox="0 0 48 32" className={className} aria-hidden="true">
    <g transform="translate(-128 -1228)">
     <text class="deep-green" font-family="Montserrat,Montserrat_MSFontService,sans-serif" font-weight="700" font-size="69" transform="matrix(1 0 0 1 1102.21 1808)">E</text>
@@ -28,6 +29,8 @@ export function LogoMark({ className = "h-7 w-auto" }: { className?: string }) {
     <text class="deep-green" font-family="Montserrat,Montserrat_MSFontService,sans-serif" font-weight="700" font-size="69" transform="matrix(1 0 0 1 646.621 1316)">N</text>
 
     <text class="deep-green" font-family="Montserrat,Montserrat_MSFontService,sans-serif" font-weight="700" font-size="69" transform="matrix(1 0 0 1 170.207 1828)">W</text>
+
+    <!-- a tiny comment here to test the synch with lovable -->
   </g> 
   </svg>
   );
