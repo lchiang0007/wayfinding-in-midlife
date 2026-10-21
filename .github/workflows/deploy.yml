@@ -40,10 +40,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload static artifact (dist/client)
+      - name: Upload static artifact (.output/public)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/client'
+          path: '.output/public'
 
       - name: Deploy to GitHub Pages
         id: deployment
