@@ -452,7 +452,7 @@ function ApplySection() {
             normal routines. Tell us a little about where you are.
           </p>
           <ul className="mt-10 space-y-3 text-sm">
-            <li><a className="hover:text-primary" href="mailto:hello@wayfindingcycling.com">hello@wayfindingcycling.com</a></li>
+            <li><a className="hover:text-primary" href="mailto:lchiang0007@gmail.com">lchiang0007@gmail.com</a></li>
             <li><a className="hover:text-primary" href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp — quick chat</a></li>
             <li><a className="hover:text-primary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></li>
             <li><a className="hover:text-primary" href="https://www.instagram.com/wayfindingcycling" target="_blank" rel="noreferrer">Instagram — @wayfindingcycling</a></li>
