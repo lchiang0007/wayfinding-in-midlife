@@ -1,8 +1,11 @@
 import { Logo, LogoMark } from "@/components/Logo";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useState, useRef } from "react";
+import type { FormEvent } from "react";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
+import { Mail, Video } from "lucide-react";
+import { COUNTRY_CODES } from "../data/countryCodes";
 import hero from "@/assets/hero.jpg";
 import patagonia from "@/assets/patagonia.jpg";
 import spain from "@/assets/spain.jpg";
@@ -55,8 +58,8 @@ const DESTINATIONS: Destination[] = [
     route: "Camino de Santiago",
     region: "Castilla / Galicia / Porto",
     img: spain,
-    facts: ["7 Days", "Gravel & Castilian Plateau", "March / 2027"],
-    line: "Remote mountains, local wine and historic routes through rugged, authentic Iberia.",
+    facts: ["7 Days", "Portuguese coast & Castilian Plateau", "March / 2027"],
+    line: "Small coastal villages, local wine and historic routes through rugged, authentic Iberia.",
     camino: true,
   },
   {
@@ -91,6 +94,32 @@ const DESTINATIONS: Destination[] = [
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <p className="text-xs font-medium uppercase tracking-[0.25em] text-primary">{children}</p>
+  );
+}
+
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662a11.87 11.87 0 005.71 1.455h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.177-1.238-6.163-3.488-8.413" />
+    </svg>
+  );
+}
+
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.6 1.6 0 1 0 1.6 1.6 1.6 1.6 0 0 0-1.6-1.6z" />
+    </svg>
   );
 }
 
@@ -163,9 +192,9 @@ function Index() {
           <dl className="mt-14 grid grid-cols-2 gap-px border-t border-ink-foreground/20 pt-6 md:grid-cols-4">
             {[
               ["Group Size", "5–6 Participants", "Curated cohort"],
-              ["Pace", "Party Pace", "Rhythm over speed"],
-              ["Terrain", "Remote Gravel & Tarmac", "50–90 km / day"],
-              ["Investment", "~$3,000–$6,000", "Per participant"],
+              ["Pace", "Deliberatively reflective", "Rhythm over speed"],
+              ["Terrain", "Gravel paths & Tarmac", "30–50 km / day"],
+              ["Investment", "Focus self-discovery", "Meaningful connection, and exploration."],
             ].map(([k, v, s]) => (
               <div key={k} className="py-3 pr-4">
                 <dt className="text-[11px] uppercase tracking-[0.2em] opacity-60">{k}</dt>
@@ -236,14 +265,14 @@ function Index() {
             </p>
             <div className="mt-10 space-y-8">
               <div className="border-l-2 border-sand pl-6">
-                <h3 className="text-2xl">Working Identity — Herminia Ibarra</h3>
+                <h3 className="text-2xl">Evolving Working Identity</h3>
                 <p className="mt-2 opacity-80">
                   We don't discover our next identity purely through introspection. We act our way
                   into new possibilities — wayfinding rather than pathfinding.
                 </p>
               </div>
               <div className="border-l-2 border-sand pl-6">
-                <h3 className="text-2xl">The Looking Phase — Chip Conley</h3>
+                <h3 className="text-2xl">The Looking Phase</h3>
                 <p className="mt-2 opacity-80">
                   The space between leaving an old identity and forming a new one is a productive
                   developmental stage, not a crisis to be solved immediately.
@@ -351,8 +380,8 @@ function Index() {
           <div className="mt-16 grid gap-16 lg:grid-cols-2">
             <dl className="grid grid-cols-3 gap-6">
               {[
-                ["Distance", "50–90", "km / day"],
-                ["Elevation", "500–1,200", "m climbing / day"],
+                ["Distance", "30-50", "km / day"],
+                ["Elevation", "500–800", "m climbing / day"],
                 ["Duration", "~8", "hours incl. breaks, food & reflection"],
               ].map(([k, v, u]) => (
                 <div key={k} className="border-t border-ink-foreground/25 pt-4">
@@ -364,8 +393,8 @@ function Index() {
             </dl>
             <ul className="space-y-6">
               {[
-                ["Gear", "All-road / gravel bike capable of 40mm tires, tubeless setup, bikepacking bags."],
-                ["Fitness", "Demonstrated endurance for consecutive long days on mixed terrain."],
+                ["Gear", "All-road bike capable of 40mm tires, tubeless setup, bikepacking bags."],
+                ["Fitness", "Capable endurance for multi-days of bike riding on mixed terrain."],
                 ["Mindset", "Openness to peer reflection, career transition exploration and group camaraderie."],
                 ["Logistics", "Comprehensive personal travel / medical insurance required."],
               ].map(([k, v]) => (
@@ -400,42 +429,140 @@ function Index() {
 const schema = z.object({
   name: z.string().trim().min(1, "Please add your name").max(120),
   email: z.string().trim().email("Please add a valid email").max(255),
-  linkedin_url: z
+  country_code: z.string().optional(),
+  phone_number: z
     .string()
     .trim()
-    .max(300)
-    .refine((v) => v === "" || /^https?:\/\/.+/.test(v), "Please paste a full URL")
+    .refine((v) => v === "" || /^[0-9\s\-]+$/.test(v), "Phone number must contain only numbers")
     .optional(),
-  motivation: z.string().trim().max(2000).optional(),
-  preferred_destination: z.string().max(60).optional(),
+  personal_profile_url: z.string().trim().max(300).optional(),
+  motivation: z
+    .string()
+    .trim()
+    .min(1, "Please enter your transition context or motivation")
+    .max(2000),
+  preferred_destination: z.string().min(1, "Please select a preferred destination").max(80),
 });
 
 function ApplySection() {
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
-  const [error, setError] = useState<string | null>(null);
+  
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    country_code: "",
+    phone_number: "",
+    personal_profile_url: "",
+    motivation: "",
+    preferred_destination: "El Camino Portugués",
+  });
+
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  // Searchable Country Code input state
+  const [countrySearch, setCountrySearch] = useState("");
+  const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
+
+  // Track list item refs to auto-scroll matching elements into view
+  const itemRefs = useRef<Record<string, HTMLLIElement | null>>({});
+
+  // Restrict typing strictly to '+' and numeric characters [0-9] and support partial number lookup
+  const handleCountrySearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const rawVal = e.target.value;
+    const cleanedVal = rawVal.replace(/[^0-9+]/g, "");
+    setCountrySearch(cleanedVal);
+    setFormData((prev) => ({ ...prev, country_code: cleanedVal }));
+    setIsCountryDropdownOpen(true);
+
+    // Auto-scroll matching item into focus/view using partial matching (e.g. "34" matches "+34")
+    const searchClean = cleanedVal.trim().replace("+", "");
+    if (searchClean !== "") {
+      const match = COUNTRY_CODES.find((c) => c.code.replace("+", "").includes(searchClean));
+      if (match) {
+        const key = `${match.code}-${match.country}`;
+        const node = itemRefs.current[key];
+        if (node) {
+          node.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      }
+    }
+  };
+
+  const selectCountryCode = (code: string) => {
+    setCountrySearch(code);
+    setFormData((prev) => ({ ...prev, country_code: code }));
+    setIsCountryDropdownOpen(false);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+  };
+
+  const parsed = schema.safeParse(formData);
+  const fieldErrors: Record<string, string> = {};
+  if (!parsed.success) {
+    for (const issue of parsed.error.issues) {
+      const fieldName = issue.path[0] as string;
+      if (!fieldErrors[fieldName]) {
+        fieldErrors[fieldName] = issue.message;
+      }
+    }
+  }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const fd = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
-    const parsed = schema.safeParse(fd);
+    
+    setTouched({
+      name: true,
+      email: true,
+      phone_number: true,
+      personal_profile_url: true,
+      motivation: true,
+      preferred_destination: true,
+    });
+
     if (!parsed.success) {
-      setError(parsed.error.issues[0]?.message ?? "Please check the form");
       return;
     }
-    setError(null);
+
     setStatus("sending");
     const v = parsed.data;
-    const { error: err } = await supabase.from("applications").insert({
-      name: v.name,
-      email: v.email,
-      linkedin_url: v.linkedin_url || null,
-      motivation: v.motivation || null,
-      preferred_destination: v.preferred_destination || null,
-    });
-    if (err) {
-      setStatus("error");
-      setError("Something went wrong — please try again or email us directly.");
-    } else setStatus("done");
+    const formattedPhone = v.phone_number ? `${v.country_code || ""} ${v.phone_number}`.trim() : "N/A";
+
+    try {
+      await supabase.from("applications").insert({
+        name: v.name,
+        email: v.email,
+        phone: formattedPhone,
+        linkedin_url: v.personal_profile_url || null,
+        motivation: v.motivation,
+        preferred_destination: v.preferred_destination,
+      });
+    } catch (err) {
+      console.warn("Supabase insert skipped or failed:", err);
+    }
+
+    const subject = encodeURIComponent(`Beta Pilot Application — ${v.name}`);
+    const bodyText = `Hi Luis/Sara: I am highly interested in one of your destinations. My contact information is below:
+
+• Name: ${v.name}
+• Email: ${v.email}
+• Phone: ${formattedPhone}
+• Personal Profile: ${v.personal_profile_url || "N/A"}
+• Preferred Destination: ${v.preferred_destination}
+
+• Current Transition / Motivation:
+${v.motivation}
+`;
+
+    const mailtoUrl = `mailto:lchiang0007@gmail.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+    window.location.href = mailtoUrl;
+    setStatus("done");
   }
 
   const field =
@@ -448,14 +575,62 @@ function ApplySection() {
           <Eyebrow>05 — Apply / Contact</Eyebrow>
           <h2 className="mt-4 text-4xl leading-tight md:text-5xl">Request a beta invitation.</h2>
           <p className="mt-6 text-muted-foreground">
-            Late 30s to early 60s, at or approaching a transition, seeking time and distance from
+            If you are approaching a transition, or seeking time and distance from
             normal routines. Tell us a little about where you are.
           </p>
-          <ul className="mt-10 space-y-3 text-sm">
-            <li><a className="hover:text-primary" href="mailto:lchiang0007@gmail.com">lchiang0007@gmail.com</a></li>
-            <li><a className="hover:text-primary" href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp — quick chat</a></li>
-            <li><a className="hover:text-primary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a></li>
-            <li><a className="hover:text-primary" href="https://www.instagram.com/wayfindingcycling" target="_blank" rel="noreferrer">Instagram — @wayfindingcycling</a></li>
+
+          {/* Contact Icons and Links */}
+          <ul className="mt-10 space-y-4 text-sm font-medium">
+            <li>
+              <a
+                className="group flex items-center gap-3 transition-colors hover:text-primary"
+                href="mailto:lchiang0007@gmail.com"
+              >
+                <div className="flex size-9 items-center justify-center rounded-sm bg-sand/60 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <Mail className="size-4" />
+                </div>
+                <span>Email us</span>
+              </a>
+            </li>
+            <li>
+              <a
+                className="group flex items-center gap-3 transition-colors hover:text-primary"
+                href="https://wa.me/+34689614934"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className="flex size-9 items-center justify-center rounded-sm bg-sand/60 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <WhatsAppIcon className="size-4" />
+                </div>
+                <span>Whatsapp Chat</span>
+              </a>
+            </li>
+            <li>
+              <a
+                className="group flex items-center gap-3 transition-colors hover:text-primary"
+                href="https://cal.com/luis-chiang-5s122l"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className="flex size-9 items-center justify-center rounded-sm bg-sand/60 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <Video className="size-4" />
+                </div>
+                <span>Schedule a video call</span>
+              </a>
+            </li>
+            <li>
+              <a
+                className="group flex items-center gap-3 transition-colors hover:text-primary"
+                href="https://www.linkedin.com/in/luis-chiang/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className="flex size-9 items-center justify-center rounded-sm bg-sand/60 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <LinkedInIcon className="size-4" />
+                </div>
+                <span>LinkedIn Profile</span>
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -464,40 +639,166 @@ function ApplySection() {
             <div className="border bg-card p-10">
               <h3 className="text-3xl">Thank you.</h3>
               <p className="mt-3 text-muted-foreground">
-                Your application is in. We'll be in touch personally as we shape the pilot cohort.
+                Your application details have been generated. If your email composer did not automatically open, please send your details to lchiang0007@gmail.com.
               </p>
             </div>
           ) : (
             <form onSubmit={onSubmit} className="grid gap-6 md:grid-cols-2" noValidate>
-              <label className="text-sm font-medium">Name
-                <input name="name" required maxLength={120} className={field} />
+              
+              {/* Name */}
+              <label className="text-sm font-medium">Name *
+                <input
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  onBlur={() => handleBlur("name")}
+                  maxLength={120}
+                  placeholder="Your name...."
+                  className={`${field} placeholder:text-muted-foreground/60 placeholder:italic`}
+                />
+                {touched.name && fieldErrors.name && (
+                  <span className="mt-1 block text-xs text-destructive">{fieldErrors.name}</span>
+                )}
               </label>
-              <label className="text-sm font-medium">Email
-                <input name="email" type="email" required maxLength={255} className={field} />
+
+              {/* Email */}
+              <label className="text-sm font-medium">Email *
+                <input
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  onBlur={() => handleBlur("email")}
+                  maxLength={255}
+                  placeholder="aa@email.xx"
+                  className={`${field} placeholder:text-muted-foreground/60 placeholder:italic`}
+                />
+                {touched.email && fieldErrors.email && (
+                  <span className="mt-1 block text-xs text-destructive">{fieldErrors.email}</span>
+                )}
               </label>
-              <label className="text-sm font-medium md:col-span-2">LinkedIn profile URL
-                <input name="linkedin_url" type="url" maxLength={300} placeholder="https://linkedin.com/in/…" className={field} />
+
+              {/* Phone with Full List, Partial Number Lookup, Auto-scroll & Highlight */}
+              <div className="md:col-span-2">
+                <label className="text-sm font-medium block">Phone Number</label>
+                <div className="mt-2 flex gap-2">
+                  <div className="relative w-1/3">
+                    <input
+                      type="text"
+                      value={countrySearch}
+                      onChange={handleCountrySearchChange}
+                      onFocus={() => setIsCountryDropdownOpen(true)}
+                      onBlur={() => setTimeout(() => setIsCountryDropdownOpen(false), 200)}
+                      placeholder="+code..."
+                      className="w-full rounded-sm border border-input bg-input-surface px-3 py-3 text-foreground outline-none text-sm focus:border-primary focus:ring-1 focus:ring-ring placeholder:text-muted-foreground/60 placeholder:italic"
+                    />
+                    {isCountryDropdownOpen && (
+                      <ul className="absolute z-50 mt-1 max-h-56 w-64 overflow-y-auto rounded-sm border border-input bg-card shadow-lg text-sm">
+                        {COUNTRY_CODES.length > 0 ? (
+                          COUNTRY_CODES.map((c) => {
+                            const searchClean = countrySearch.trim().replace("+", "");
+                            const isMatch = searchClean !== "" && c.code.replace("+", "").includes(searchClean);
+                            const key = `${c.code}-${c.country}`;
+                            return (
+                              <li
+                                key={key}
+                                ref={(el) => {
+                                  itemRefs.current[key] = el;
+                                }}
+                                onMouseDown={() => selectCountryCode(c.code)}
+                                className={`cursor-pointer px-3 py-2 transition-colors flex justify-between ${
+                                  isMatch
+                                    ? "bg-primary text-primary-foreground font-bold"
+                                    : "hover:bg-primary/20"
+                                }`}
+                              >
+                                <span>{c.code}</span>
+                                <span className="text-xs opacity-75">{c.country}</span>
+                              </li>
+                            );
+                          })
+                        ) : (
+                          <li className="px-3 py-2 text-xs text-muted-foreground">No country codes available</li>
+                        )}
+                      </ul>
+                    )}
+                  </div>
+                  <input
+                    name="phone_number"
+                    type="tel"
+                    value={formData.phone_number}
+                    onChange={handleChange}
+                    onBlur={() => handleBlur("phone_number")}
+                    placeholder="Numbers only..."
+                    className="w-2/3 rounded-sm border border-input bg-input-surface px-4 py-3 text-foreground outline-none text-sm focus:border-primary focus:ring-1 focus:ring-ring placeholder:text-muted-foreground/60 placeholder:italic"
+                  />
+                </div>
+                {touched.phone_number && fieldErrors.phone_number && (
+                  <span className="mt-1 block text-xs text-destructive">{fieldErrors.phone_number}</span>
+                )}
+              </div>
+
+              {/* Personal Profile URL */}
+              <label className="text-sm font-medium md:col-span-2">Personal Profile URL
+                <input
+                  name="personal_profile_url"
+                  type="url"
+                  value={formData.personal_profile_url}
+                  onChange={handleChange}
+                  onBlur={() => handleBlur("personal_profile_url")}
+                  maxLength={300}
+                  placeholder="https://..."
+                  className={field}
+                />
+                {touched.personal_profile_url && fieldErrors.personal_profile_url && (
+                  <span className="mt-1 block text-xs text-destructive">{fieldErrors.personal_profile_url}</span>
+                )}
               </label>
-              <label className="text-sm font-medium md:col-span-2">Current transition / motivation
-                <textarea name="motivation" rows={4} maxLength={2000} className={field} />
+
+              {/* Transition / Motivation */}
+              <label className="text-sm font-medium md:col-span-2">Tell us about your transition / motivation *
+                <textarea
+                  name="motivation"
+                  value={formData.motivation}
+                  onChange={handleChange}
+                  onBlur={() => handleBlur("motivation")}
+                  rows={4}
+                  maxLength={2000}
+                  placeholder="I am currently considering ..."
+                  className={`${field} placeholder:text-muted-foreground/60 placeholder:italic`}
+                />
+                {touched.motivation && fieldErrors.motivation && (
+                  <span className="mt-1 block text-xs text-destructive">{fieldErrors.motivation}</span>
+                )}
               </label>
-              <label className="text-sm font-medium md:col-span-2">Preferred destination
-                <select name="preferred_destination" className={field} defaultValue="El Camino Portugués">
+
+              {/* Preferred Destination */}
+              <label className="text-sm font-medium md:col-span-2">Preferred destination *
+                <select
+                  name="preferred_destination"
+                  value={formData.preferred_destination}
+                  onChange={handleChange}
+                  onBlur={() => handleBlur("preferred_destination")}
+                  className={field}
+                >
                   <option value="El Camino Portugués">El Camino Portugués — Porto to Santiago</option>
                   {DESTINATIONS.filter((x) => x.comingSoon).map((x) => (
                     <option key={x.name} value={x.name} disabled className="cursor-not-allowed opacity-50">
                       {x.name} — {x.route} · Coming Soon
                     </option>
                   ))}
+                  <option value="Other: custom destination">Other: custom destination</option>
                 </select>
+                {touched.preferred_destination && fieldErrors.preferred_destination && (
+                  <span className="mt-1 block text-xs text-destructive">{fieldErrors.preferred_destination}</span>
+                )}
               </label>
-              {error && <p className="text-sm text-destructive md:col-span-2">{error}</p>}
+
               <button
                 type="submit"
-                disabled={status === "sending"}
-                className="rounded-sm bg-primary px-6 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover disabled:opacity-60 md:col-span-2"
+                className="rounded-sm bg-primary px-6 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover md:col-span-2"
               >
-                {status === "sending" ? "Sending…" : "Apply for Pilot Cohort"}
+                Apply for Pilot Cohort
               </button>
             </form>
           )}

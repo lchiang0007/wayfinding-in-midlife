@@ -167,13 +167,6 @@ const EXCLUDED = [
   ["Personal Extras", "Alcoholic beverages outside included dinners, souvenirs, and discretionary tips."],
 ];
 
-const MAILTO =
-  "mailto:lchiang0007@gmail.com?subject=" +
-  encodeURIComponent("I'm IN: Wayfinding el Camino Portugues") +
-  "&body=Dear%20Luis%2C%0D%0A%0D%0AI%20am%20interested%20in%20joining%20the%20pilot%20cohort%20for%20the%20Wayfinding%20El%20Camino%20Portugu%C3%A9s%20expedition.%0D%0A%0D%0AI%20would%20love%20to%20learn%20more%20about%20the%20itinerary%2C%20logistics%2C%20and%20next%20steps%20for%20securing%20a%20spot.%0D%0A%0D%0ABest%20regards%2C";
-
-// Replace with the real Vimeo video ID when available.
-
 function Eyebrow({ children, className = "text-primary" }: { children: React.ReactNode; className?: string }) {
   return <p className={`text-xs font-medium uppercase tracking-[0.25em] ${className}`}>{children}</p>;
 }
@@ -202,9 +195,13 @@ function CaminoPage() {
               <a key={h} href={h} className="opacity-75 transition-opacity hover:opacity-100">{l}</a>
             ))}
           </nav>
-          <a href={MAILTO} className="rounded-sm bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover">
+          <Link
+            to="/"
+            hash="apply"
+            className="rounded-sm bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover"
+          >
             Apply for Pilot Cohort
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -229,7 +226,13 @@ function CaminoPage() {
             </span>
           </h1>
           <div className="mt-10 flex flex-wrap gap-4">
-            <a href={MAILTO} className="rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover">Apply for Pilot Cohort</a>
+            <Link
+              to="/"
+              hash="apply"
+              className="rounded-sm bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover"
+            >
+              Apply for Pilot Cohort
+            </Link>
             <a href="#itinerary" className="rounded-sm border border-ink-foreground/40 px-6 py-3 text-sm font-semibold hover:bg-ink-foreground/10">Scroll to Itinerary</a>
           </div>
         </div>
@@ -404,9 +407,13 @@ function CaminoPage() {
           "The destination is simply the setting. You don't need to know where you are going before you start moving."
         </blockquote>
         <p className="mt-6 text-muted-foreground">Join us for the 2027 pilot cohort across Portugal and Spain.</p>
-        <a href={MAILTO} className="mt-10 inline-block rounded-sm bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover">
+        <Link
+          to="/"
+          hash="apply"
+          className="mt-10 inline-block rounded-sm bg-primary px-8 py-4 text-sm font-semibold uppercase tracking-wider text-primary-foreground hover:bg-primary-hover"
+        >
           Apply for the 2027 Pilot Cohort
-        </a>
+        </Link>
         <p className="mt-8 text-sm text-muted-foreground">
           Selective small-group departure. Enquiries:{" "}
           <a className="text-primary hover:underline" href="mailto:hello@wayfindingcycling.com">hello@wayfindingcycling.com</a>
