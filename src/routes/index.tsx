@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Guiding high-performers through midlife transitions through structured reflection and adventure cycling experiences.",
       },
-      { property: "og:image", content: ogImage }, // Uses the imported bundled asset path
+      { property: "og:image", content: `https://wayfindingcycling.com${ogImage}` }, // Uses the imported bundled asset path
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:type", content: "image/jpeg" },
