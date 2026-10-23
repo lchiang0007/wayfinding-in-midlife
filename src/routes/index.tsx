@@ -11,28 +11,43 @@ import patagonia from "@/assets/patagonia.jpg";
 import spain from "@/assets/spain.jpg";
 import iceland from "@/assets/iceland.jpg";
 import japan from "@/assets/japan.jpg";
+import ogImage from "@/assets/og-image.jpg"; // Import your image from src/assets
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Wayfinding Cycling — Adventure cycling for turning points" },
+      { title: "Wayfinding in Midlife" },
       {
         name: "description",
         content:
-          "A selective 7–15 day gravel journey with structured reflection for executives and leaders in transition. 2026–2027 beta pilot, by application.",
+          "Guiding high-performers through midlife transitions through structured reflection and endurance cycling experiences.",
       },
-      { property: "og:title", content: "Wayfinding Cycling — Adventure for turning points" },
+      // Open Graph / WhatsApp Preview Tags
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://wayfindingcycling.com/" },
+      { property: "og:title", content: "Wayfinding in Midlife" },
       {
         property: "og:description",
-        content: "Party-pace gravel journeys and peer reflection for leaders between chapters.",
+        content: "Guiding high-performers through midlife transitions through structured reflection and adventure cycling experiences.",
       },
-      { property: "og:type", content: "website" },
+      { property: "og:image", content: ogImage }, // Uses the imported bundled asset path
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:site_name", content: "Wayfinding in Midlife" },
+      // Twitter / X Meta Tags
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:url", content: "https://wayfindingcycling.com/" },
+      { name: "twitter:title", content: "Wayfinding in Midlife" },
+      {
+        name: "twitter:description",
+        content: "Guiding high-performers through midlife transitions through structured reflection and adventure cycling experiences.",
+      },
+      { name: "twitter:image", content: ogImage },
     ],
   }),
   component: Index,
 });
-
 const NAV = [
   ["What Is It", "#what"],
   ["Philosophy", "#philosophy"],
