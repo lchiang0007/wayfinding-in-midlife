@@ -575,7 +575,7 @@ function ApplySection() {
 ${v.motivation}
 `;
 
-    const mailtoUrl = `mailto:lchiang0007@gmail.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+    const mailtoUrl = `mailto:info@wayfindingcycling.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
     window.location.href = mailtoUrl;
     setStatus("done");
   }
@@ -599,7 +599,7 @@ ${v.motivation}
             <li>
               <a
                 className="group flex items-center gap-3 transition-colors hover:text-primary"
-                href="mailto:lchiang0007@gmail.com"
+                href="mailto:info@wayfindingcycling.com"
               >
                 <div className="flex size-9 items-center justify-center rounded-sm bg-sand/60 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   <Mail className="size-4" />
@@ -654,7 +654,7 @@ ${v.motivation}
             <div className="border bg-card p-10">
               <h3 className="text-3xl">Thank you.</h3>
               <p className="mt-3 text-muted-foreground">
-                Your application details have been generated. If your email composer did not automatically open, please send your details to lchiang0007@gmail.com.
+                Your application details have been generated. If your email composer did not automatically open, please send your details to info@wayfindingcycling.com.
               </p>
             </div>
           ) : (
